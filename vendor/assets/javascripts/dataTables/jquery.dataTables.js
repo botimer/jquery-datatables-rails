@@ -1199,10 +1199,11 @@
 
 					if ( oSettings.aoColumns[i].bSortable )
 					{
-						nTh.setAttribute('tabindex', oSettings.iTabIndex);
+
  // umich comment - remove aria attributes 
      				if ( !oSettings.oLanguage.sAccessibility )
      				{
+     					nTh.setAttribute('tabindex', oSettings.iTabIndex);
 							nTh.setAttribute('aria-controls', oSettings.sTableId);
 						}
 					}
@@ -1228,8 +1229,10 @@
 				{
 					nTh = oSettings.aoColumns[i].nTh;
 					nTh.innerHTML = oSettings.aoColumns[i].sTitle;
-					nTh.setAttribute('tabindex', '0');
-
+					if ( !oSettings.oLanguage.sAccessibility )
+     			{
+						nTh.setAttribute('tabindex', '0');
+          }
 					if ( oSettings.aoColumns[i].sClass !== null )
 					{
 						$(nTh).addClass( oSettings.aoColumns[i].sClass );
@@ -9488,7 +9491,7 @@
 			 *    } );
 			 */
 			"sLengthMenu": "_MENU_",
-			"sLengthLabel": "Records per page:",
+			"sLengthLabel": "",
 			"sAccessibility": 1,
 
 
@@ -9564,7 +9567,6 @@
 			 *    } );
 			 */
 			"sSearch": "Search:",
-			"sSearchLabel": "Records per pag:",
 
 
 			/**
