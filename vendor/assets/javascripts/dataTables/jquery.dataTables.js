@@ -1120,8 +1120,6 @@
 				{
 					var oCol = oSettings.aoColumns[i];
 					nTd = document.createElement( oCol.sCellType );
-//umich comment - add scope row to the first th of the tbody
-
         // place to set this attribute.
         // It may make more sense to bake this into the oCol object, perhaps
         // oCol.sRole;
@@ -1187,7 +1185,6 @@
 				for ( i=0, iLen=oSettings.aoColumns.length ; i<iLen ; i++ )
 				{
 					nTh = oSettings.aoColumns[i].nTh;
-// umich set scope of column
 					if ( oSettings.oLanguage.sAccessibility )
 					{
           	nTh.setAttribute("scope","col");
@@ -1199,8 +1196,6 @@
 
 					if ( oSettings.aoColumns[i].bSortable )
 					{
-
- // umich comment - remove aria attributes 
      				if ( !oSettings.oLanguage.sAccessibility )
      				{
      					nTh.setAttribute('tabindex', oSettings.iTabIndex);
@@ -1243,7 +1238,6 @@
 				$(oSettings.nTHead).html( '' )[0].appendChild( nTr );
 				_fnDetectHeader( oSettings.aoHeader, oSettings.nTHead );
 			}
-// umich comment - remove aria attributes 
        if ( !oSettings.oLanguage.sAccessibility )
        	{
 					/* ARIA role for the rows */
@@ -2155,8 +2149,6 @@
 					} );
 				}
 			} );
-
-// umich comment - remove aria attributes 
  			if ( !oSettings.oLanguage.sAccessibility)
  			{
 				jqFilter
@@ -2525,7 +2517,6 @@
 				/* Add id */
 				nInfo.id = oSettings.sTableId+'_info';
 			}
-// umich comment - remove aria attributes 
 	    if ( !oSettings.oLanguage.sAccessibility )
 	    {
 				oSettings.nTable.setAttribute( 'aria-describedby', oSettings.sTableId+'_info' );
@@ -2815,8 +2806,6 @@
 			{
 				nLength.id = oSettings.sTableId+'_length_div';
 			}
-			nLength.className = oSettings.oClasses.sLength;
-//umich label for records per page should not wrap the content
       if ( oSettings.oLanguage.sAccessibility)
       {
 				nLength.innerHTML = '<label '+sFor+'>'+oSettings.oLanguage.sLengthLabel+'</label>'+oSettings.oLanguage.sLengthMenu.replace( '_MENU_', sStdMenu );
@@ -2865,7 +2854,6 @@
 
 				_fnDraw( oSettings );
 			} );
-//umich suppress aria-controls
  				if ( !oSettings.oLanguage.sAccessibility)
  				{
 					$('select', nLength).attr('aria-controls', oSettings.sTableId);
@@ -4118,7 +4106,6 @@
 			{
 				var sTitle = aoColumns[i].sTitle.replace( /<.*?>/g, "" );
 				nTh = aoColumns[i].nTh;
-// umich comment set scope of column
  			if ( oSettings.oLanguage.sAccessibility)
  				{
         	nTh.setAttribute("scope","col");
@@ -4134,14 +4121,12 @@
 				{
 					if ( aaSort.length > 0 && aaSort[0][0] == i )
 					{
-// umich comment - remove aria attributes 
  						if ( !oSettings.oLanguage.sAccessibility )
  						{
 							nTh.setAttribute('aria-sort', aaSort[0][1]=="asc" ? "ascending" : "descending" );
 						}
 						var nextSort = (aoColumns[i].asSorting[ aaSort[0][2]+1 ]) ?
 							aoColumns[i].asSorting[ aaSort[0][2]+1 ] : aoColumns[i].asSorting[0];
-// umich comment - remove aria attributes 
 						 if ( !oSettings.oLanguage.sAccessibility )
 						 {
 							nTh.setAttribute('aria-label', sTitle+
@@ -4150,7 +4135,6 @@
 					}
 					else
 					{
-// umich comment - remove aria attributes 
  						if ( !oSettings.oLanguage.sAccessibility 	 )
  						{
 							nTh.setAttribute('aria-label', sTitle+
@@ -4160,7 +4144,6 @@
 				}
 				else
 				{
-// umich comment - remove aria attributes 
 					if ( !oSettings.oLanguage.sAccessibility )
 				 	{
 						nTh.setAttribute('aria-label', sTitle);
@@ -6826,7 +6809,6 @@
 				this.appendChild( tbody[0] );
 			}
 			oSettings.nTBody = tbody[0];
-//// umich comment - remove aria attributes 
 			 if ( !oSettings.oLanguage.sAccessibility )
 			 {
 					oSettings.nTBody.setAttribute( "role", "alert" );
@@ -11674,7 +11656,6 @@
 					nPaging.id = oSettings.sTableId+'_paginate';
 					nPrevious.id = oSettings.sTableId+'_previous';
 					nNext.id = oSettings.sTableId+'_next';
-// umich comment - remove aria attributes 
 				 if ( !oSettings.oLanguage.sAccessibility )
 				 	{
 						nPrevious.setAttribute('aria-controls', oSettings.sTableId);
