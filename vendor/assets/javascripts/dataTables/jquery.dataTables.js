@@ -2102,11 +2102,21 @@
 			var sName  = 'name='+sIdVal;
 			var sId    = 'id='+sIdVal;
 	    var sFor   = 'for='+sIdVal;
-	   var sStdMenu = '<input type="text" '+sId + sName+ '/>';
+	    var sStdMenu = '<input type="text" '+sId + sName+ '/>';
+ 			if ( oSettings.oLanguage.sAccessibility)
+ 			{
 
-			sSearchStr = (sSearchStr.indexOf('_INPUT_') !== -1) ?
-			  sSearchStr.replace('_INPUT_', '<input type="text" />') :
-			  sSearchStr==="" ? '<input type="text" />' : ' <input type="text" />';
+				sSearchStr = (sSearchStr.indexOf('_INPUT_') !== -1) ?
+				  sSearchStr.replace('_INPUT_', '<input type="text" />') :
+				  ' <input type="text" />';
+			}
+			else
+			{
+				sSearchStr = (sSearchStr.indexOf('_INPUT_') !== -1) ?
+				  sSearchStr.replace('_INPUT_', '<input type="text" />') :
+				  sSearchStr==="" ? '<input type="text" />' : sSearchStr+' <input type="text" />';
+			}
+
       sSearchStr = sStdMenu;
 			var nFilter = document.createElement( 'div' );
 			nFilter.className = oSettings.oClasses.sFilter;
